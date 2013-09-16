@@ -9,23 +9,31 @@ angular.module('app.controllers', [])
 
 ($scope) ->
 
-  sortBy = (title) ->
-    $scope.predicate = title
+  sortBy = (id) ->
+    $scope.predicate = id
     $scope.reverse = not $scope.reverse
+
+  sortdirection = (id) ->
+    return unless $scope.predicate is id
+    if $scope.reverse then "⇓" else "⇑"
 
   $scope.titles = [{
       name: "Name"
-      sort: null
     }, {
       name: "Adv.Invoice"
-      sort: -> sortBy "invoice"
+      id: "invoice"
+      sort: -> sortBy @id
+      direction:  -> sortdirection @id
     }, {
       name: "Impressions"
-      sort: -> sortBy  "impression"
-      sortdirection: ""
+      id: "impression"
+      sort: -> sortBy  @id
+      direction:  -> sortdirection @id
     }, {
       name: "Clicks"
-      sort: -> sortBy  "click"
+      id: "click"
+      sort: -> sortBy  @id
+      direction:  -> sortdirection @id
     }]
 
   $scope.mockData = for  i in  _.range 15
