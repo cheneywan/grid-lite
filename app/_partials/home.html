@@ -1,5 +1,26 @@
 <div data-ng-controller="HomeCtrl">
 
-  <h1>It works</h1>
+  <table class="table">
+
+    <thead>
+      <tr>
+        <th data-ng-repeat="title in titles" data-ng-click="title.sort()">
+          <a href="javascript:">
+            {{title.name}}
+          </a>
+        </th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <tr data-ng-repeat="data in mockData | orderBy:predicate:reverse">
+        <th>{{data.name}}</th>
+        <td>{{data.invoice | number}}</td>
+        <td>{{data.impression | number}}</td>
+        <td>{{data.click | number}}</td>
+      </tr>
+    </tbody>
+
+  </table>
 
 </div>
