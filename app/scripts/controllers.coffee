@@ -29,11 +29,11 @@ angular.module('app.controllers', [])
       name: "Clicks"
     }]
 
-  $scope.mockData = for  i in  _.range 15
-      name: "KFC#{i}"
-      invoice:  _.random 100000
-      impression:  _.random 100000
-      click: _.random 10000
+  $scope.mockData = _(15).times (i) ->
+    name: "KFC#{i}"
+    invoice:  _.random 100000
+    impression:  _.random 100000
+    click: _.random 10000
 
 ])
 
