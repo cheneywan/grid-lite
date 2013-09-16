@@ -34,7 +34,7 @@ exports.config =
         'js/vendor.js': /^(bower_components|vendor)/
       order:
         before: [
-          'vendor/scripts/bootstrap/bootstrap-tooltip.js'
+          'bower_components/jquery/jquery.js'
         ]
 
     stylesheets:
