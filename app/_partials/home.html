@@ -4,10 +4,8 @@
 
     <thead>
       <tr>
-        <th data-ng-repeat="title in titles" data-ng-click="title.sort()">
-          <a href="javascript:">
-            {{title.name}}{{title.direction()}}
-          </a>
+        <th data-ng-repeat="title in titles" data-ng-click="sortBy(title)">
+          {{title.name}} {{title.id == predicate && (reverse && '⇓' || '⇑') || ''}}
         </th>
       </tr>
     </thead>
